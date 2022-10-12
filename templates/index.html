@@ -73,12 +73,7 @@
                 <h1>{{city}}</h1>
               {% endif %}
               <small>
-                <span class="time"> 
-                  06:09 
-                </span>
-                <span class"date"> 
-                  Monday Sep 19 
-                </span>
+                <span class="current_date"></span>
               </small>
             </div>
           <div>
@@ -97,12 +92,12 @@
             {% endif %}
           </div>
         </div>        
+        {% if data.pollution %}
         <div class="pollution">
             <ul class="pollution_details">
-              {% if data.pollution %}
-              <h4>Pollution deatils:</h4>
+              <h4>Pollution details</h4>
               <li>
-                <span>Air Quality Index</span> 
+                <span>Air Quality Index: </span> 
                 <span class="air_quality_index">{{data.pollution.air_quality_index}}</span>
               </li>
               <li>
@@ -121,18 +116,21 @@
                 <span>Particulates (PM10)</span> 
                 <span class="particulates_10">{{data.pollution.pm10}}</span>
               </li>
-              {% endif %}
             </ul>
           </div>
-      </div>
+        {% endif %}
+        </div>
     </div>
-
-    <input type="hidden" name="longitude" value={{data.longitude}} />
-    <input type="hidden" name="latitude" value={{data.latitude}} />
+   
+    {% if data.longitude and data.latitude%}
+      <input type="hidden" name="longitude" value={{data.longitude}} />
+      <input type="hidden" name="latitude" value={{data.latitude}} />
+    {% endif %}
 
     {% if not error %} 
     <div id="map"></div>
     {% endif %}
+
   </main>
   <!-- javascript file -->
   <script src="{% static 'main.js' %}"></script>
