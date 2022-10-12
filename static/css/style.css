@@ -119,6 +119,27 @@ h1, h3 {
     display: flex;
 }
 
+.weather {
+    width: 50%;
+    height: 30rem;
+    margin-left: 3rem;
+}
+
+.pollution {
+    width: 50%;
+    height: 29rem;
+    background-color: rgba(0,0,0,.4);
+    border-radius: 0.5rem;
+}
+
+.pollution_details {
+    list-style: none;
+}
+
+.pollution_details > li {
+    margin-bottom: 1rem;
+}
+
 #map { 
     height: 600px; 
 }
