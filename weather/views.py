@@ -23,7 +23,7 @@ def index(request):
                 data = {
                     "country_code": str(json_data['sys']['country']),
                     "coordinate": str(json_data['coord']['lon']) + ' ' +str(json_data['coord']['lat']),
-                    "temperature": str(json_data['main']['temp'])+ '°C',
+                    "temperature": str(round((json_data['main']['temp']), 1))+ '°C',
                     "feels_like": str(json_data['main']['feels_like']) + '°C',
                     "pressure": str(json_data['main']['pressure']) + 'hPa',
                     "humidity": str(json_data['main']['humidity']),
