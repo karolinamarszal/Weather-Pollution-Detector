@@ -1,0 +1,218 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+  <title>Weather&Pollution detector</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/fav_icon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/fav_icon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/fav_icon/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'site.webmanifest' %}"> 
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+
+  <!-- maps -->
+ 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+     crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+        integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+        crossorigin="">
+    </script>
+
+<!-- css files -->
+<link rel="stylesheet" href="{% static 'css/normalize.css' %}">  
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+  <main>
+    <div class="main">
+      <div class="top">
+        {% comment %} <h3 class="heading">Weather&Pollution Detector</h3> {% endcomment %}
+        <form action="" method="post" class="form">
+          {% csrf_token %}
+            <div class="city_input">
+                <input type="text" name="city" placeholder="Please enter city name...">
+                  <button type="submit">
+                    <ion-icon name="search-outline" class="btn_icon"></ion-icon>
+                  </button>
+            </div>
+            <div class="pollution_switch">
+              <div class="switch_btn">
+                <input type="checkbox" name="pollution" id="pollution_id" checked>
+                <label for="pollution_id">Toggle</label>
+                <span>Show air pollution</span>
+              </div>
+                {% if error %}
+                <h5>{{error}}</h5>
+                {% endif %}
+            </div>
+        </form>
+      </div> 
+      <div class="down">
+        <div class="weather">
+            {% if data.country_code %}
+              <h1 class="temp">{{data.temperature}}</h1>
+              {% endif %}
+            <div class="city">
+              {% if data.country_code %}
+                <h1>{{city}}</h1>
+              {% endif %}
+              <small>
+                <span class="time"> 
+                  06:09 
+                </span>
+                <span class"date"> 
+                  Monday Sep 19 
+                </span>
+              </small>
+            </div>
+          <div>
+              {% if data.country_code %}
+                <img src="{{data.icon_src}}" alt="weather_icons"/>
+                <span class"description">{{data.description}}</span>
+              {% endif %}
+          </div>
+          <div class="conditions">
+            {% if data.country_code %}
+              <h3>country code: {{data.country_code}}</h1>
+              <h5>coordinates: {{data.coordinate}}</h5>
+              <h5>feels_like : {{data.feels_like}}</h5>
+              <h5>pressure : {{data.pressure}} </h5>
+              <h5>humidity : {{data.humidity}}</h5>
+            {% endif %}
+          </div>
+        </div>        
+        <div class="pollution">
+            <ul class="pollution_details">
+              {% if data.pollution %}
+              <h4>Pollution deatils:</h4>
+              <li>
+                <span>Air Quality Index</span> 
+                <span class="air_quality_index">{{data.pollution.air_quality_index}}</span>
+              </li>
+              <li>
+                <span>Carbon monoxide (CO)</span> 
+                <span class="carbon_monoxide">{{data.pollution.co}}</span>
+              </li>
+              <li>
+                <span>Nitrogen dioxide (NO2)</span> 
+                <span class="nitrogen_dioxide">{{data.pollution.no2}}</span>
+              </li>
+              <li>
+                <span>Particulates (PM2.5)</span> 
+                <span class="particulates_25">{{data.pollution.pm2_5}}</span>
+              </li>
+              <li>
+                <span>Particulates (PM10)</span> 
+                <span class="particulates_10">{{data.pollution.pm10}}</span>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+      </div>
+    </div>
+
+    <input type="hidden" name="longitude" value={{data.longitude}} />
+    <input type="hidden" name="latitude" value={{data.latitude}} />
+
+    {% if not error %} 
+    <div id="map"></div>
+    {% endif %}
+  </main>
+  <!-- javascript file -->
+  <script src="{% static 'main.js' %}"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
+
+
+{% comment %} 
+
+  <nav class="row" style="background: grey; color: white;">
+    <div align="center"><h1 class="col-md-3 text-center">Weather Detector</h1></div>
+  </nav>
+  <br />
+  <br />
+  <div class="row">
+    <form action="" method="post" class="col-md-6 col-md-offset-3">
+      {% csrf_token %}
+        <div class="input-group">
+            <input type="text" class="form-control" name="city" placeholder="Search">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <ion-icon name="search-outline"></ion-icon>
+                </button>
+            </div>
+            <div>
+                <label for="pollution_id">Show air pollution</label>
+                <input type="checkbox" name="pollution" id="pollution_id" checked>
+                {% if error %}
+                <h5>{{error}}</h5>
+                {% endif %}
+            </div>
+        </div>
+    </form>
+
+  <div class="row">
+    {% if data.country_code %}
+    <div class="col-md-6 col-md-offset-3">
+      <h1>{{city}}</h1>
+        <h3>country code : {{data.country_code}}</h1>
+        <h5>coordinate : {{data.coordinate}}</h5>
+        <h5>temperature : {{data.temperature}}</h5>
+        <h5>feels_like : {{data.feels_like}}</h5>
+        <h5>pressure : {{data.pressure}} </h5>
+        <h5>humidity : {{data.humidity}}</h5>
+        <h5>description: {{data.description}}</h5>
+        <h5>
+            <img src="{{data.icon_src}}" alt="weather_icons"/>
+        </h5>
+    </div>
+    {% endif %}
+
+    {% if data.pollution %}
+    <h5>Air Quality Index : {{data.pollution.air_quality_index}}</h5>
+    <h5>Carbon monoxide (CO) : {{data.pollution.co}}</h5>
+    <h5>Nitrogen dioxide (NO2) : {{data.pollution.no2}}</h5>
+    <h5>Particulates (PM2.5) : {{data.pollution.pm2_5}}</h5>
+    <h5>Particulates (PM10) : {{data.pollution.pm10}}</h5>
+    {% endif %}
+  </div>
+
+
+  <input type="hidden" name="longitude" value={{data.longitude}} />
+  <input type="hidden" name="latitude" value={{data.latitude}} />
+
+  {% if not error %} 
+  <div id="map"></div>
+  {% endif %}
+  
+  <!-- javascript file -->
+  <script src="{% static 'main.js' %}"></script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html> {% endcomment %}
