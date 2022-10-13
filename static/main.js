@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const switch_btn = document.getElementById("pollution_id");
 
             switch_btn.addEventListener("click", function(){
-                if (pollution_view.style.display !== "none") {
-                    pollution_view.style.display = "none";
+                if (pollution_view.style.visibility !== "hidden") {
+                    pollution_view.style.visibility = "hidden";
                 } else {
-                    pollution_view.style.display = "block";
+                    pollution_view.style.visibility = "visible";
                 };
             });
 
