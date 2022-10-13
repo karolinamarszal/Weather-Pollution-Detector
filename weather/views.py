@@ -22,11 +22,11 @@ def index(request):
                 json_data = json.loads(res)
                 data = {
                     "country_code": str(json_data['sys']['country']),
-                    "coordinate": str(json_data['coord']['lon']) + ' ' +str(json_data['coord']['lat']),
+                    "coordinate": str(json_data['coord']['lon']) + ', ' +str(json_data['coord']['lat']),
                     "temperature": str(round((json_data['main']['temp']), 1))+ '°C',
-                    "feels_like": str(json_data['main']['feels_like']) + '°C',
+                    "feels_like": str(round(json_data['main']['feels_like'])) + '°C',
                     "pressure": str(json_data['main']['pressure']) + 'hPa',
-                    "humidity": str(json_data['main']['humidity']),
+                    "humidity": str(json_data['main']['humidity']) + '%',
                     "description": str(json_data['weather'][0]['description']),
                     "icon_src": 'http://openweathermap.org/img/wn/' + json_data['weather'][0]['icon']+ '@2x.png',
                     "longitude": json_data['coord']['lon'],
@@ -40,10 +40,10 @@ def index(request):
                     json_data_pollution = json.loads(res_pollution)
                     data["pollution"] = {
                         "air_quality_index": get_air_quality_label(int(json_data_pollution['list'][0]['main']['aqi'])), 
-                        "co": str(json_data_pollution['list'][0]['components']['co']), 
-                        "no2": str(json_data_pollution['list'][0]['components']['no2']), 
-                        "pm2_5": str(json_data_pollution['list'][0]['components']['pm2_5']), 
-                        "pm10": str(json_data_pollution['list'][0]['components']['pm10']),
+                        "co": str(json_data_pollution['list'][0]['components']['co']) + ' μg/m3', 
+                        "no2": str(json_data_pollution['list'][0]['components']['no2']) + ' μg/m3', 
+                        "pm2_5": str(json_data_pollution['list'][0]['components']['pm2_5']) + ' μg/m3', 
+                        "pm10": str(json_data_pollution['list'][0]['components']['pm10']) + ' sμg/m3',
                         }
             else:
                 
