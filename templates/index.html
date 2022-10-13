@@ -65,23 +65,25 @@
       </div> 
       <div class="down">
         <div class="weather">
-            {% if data.country_code %}
-              <h1 class="temp">{{data.temperature}}</h1>
-              {% endif %}
-            <div class="city">
-              {% if data.country_code %}
+            <div class="weather_general">
+              <div class="temperature">
+                {% if data.country_code %}
+                <h1 class="temp">{{data.temperature}}</h1>
+                {% endif %}
+              </div>
+              <div class="city">
+                {% if data.country_code %}
                 <h1>{{city}}</h1>
-              {% endif %}
-              <small>
-                <span class="current_date"></span>
-              </small>
-            </div>
-          <div>
-              {% if data.country_code %}
+                {% endif %}
+                  <span class="current_date"></span>
+              </div>
+              <div class="icon">
+                {% if data.country_code %}
                 <img src="{{data.icon_src}}" alt="weather_icons"/>
-                <span class"description">{{data.description}}</span>
-              {% endif %}
-          </div>
+                <span class="description">{{data.description}}</span>
+                {% endif %}
+              </div>
+            </div>
           <div class="conditions">
             {% if data.country_code %}
               <h3>country code: {{data.country_code}}</h1>
@@ -101,19 +103,19 @@
                 <span class="air_quality_index">{{data.pollution.air_quality_index}}</span>
               </li>
               <li>
-                <span>Carbon monoxide (CO)</span> 
+                <span>Carbon monoxide (CO): </span> 
                 <span class="carbon_monoxide">{{data.pollution.co}}</span>
               </li>
               <li>
-                <span>Nitrogen dioxide (NO2)</span> 
+                <span>Nitrogen dioxide (NO2): </span> 
                 <span class="nitrogen_dioxide">{{data.pollution.no2}}</span>
               </li>
               <li>
-                <span>Particulates (PM2.5)</span> 
+                <span>Particulates (PM2.5): </span> 
                 <span class="particulates_25">{{data.pollution.pm2_5}}</span>
               </li>
               <li>
-                <span>Particulates (PM10)</span> 
+                <span>Particulates (PM10): </span> 
                 <span class="particulates_10">{{data.pollution.pm10}}</span>
               </li>
             </ul>
