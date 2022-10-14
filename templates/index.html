@@ -86,18 +86,21 @@
             </div>
           <div class="conditions">
             {% if data.country_code %}
-              <h3>country code: {{data.country_code}}</h1>
-              <h5>coordinates: {{data.coordinate}}</h5>
-              <h5>feels_like : {{data.feels_like}}</h5>
-              <h5>pressure : {{data.pressure}} </h5>
-              <h5>humidity : {{data.humidity}}</h5>
+              <h5>Country code: {{data.country_code}}</h5>
+              <h5>Coordinates: {{data.coordinate}}</h5>
+              <h5>Feels like : {{data.feels_like}}</h5>
+              <h5>Pressure : {{data.pressure}} </h5>
+              <h5>Humidity : {{data.humidity}}</h5>
             {% endif %}
           </div>
         </div>        
         {% if data.pollution %}
         <div class="pollution">
+          <div class="pollution_header">
+            <h3>Pollution details</h3>
+            <ion-icon class="icon_skull" name="skull-outline"></ion-icon>
+          </div>
             <ul class="pollution_details">
-              <h4>Pollution details</h4>
               <li>
                 <span>Air Quality Index: </span> 
                 <span class="air_quality_index">{{data.pollution.air_quality_index}}</span>
@@ -122,6 +125,9 @@
           </div>
         {% endif %}
         </div>
+        <div class="title">
+          <span>Weather & Pollution Detector</span>
+        </div>
     </div>
    
     {% if data.longitude and data.latitude%}
@@ -129,10 +135,11 @@
       <input type="hidden" name="latitude" value={{data.latitude}} />
     {% endif %}
 
-    {% if not error %} 
+    {% if not error and data.temperature %} 
     <div id="map"></div>
     {% endif %}
 
+  
   </main>
   <!-- javascript file -->
   <script src="{% static 'main.js' %}"></script>
