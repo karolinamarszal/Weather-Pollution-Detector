@@ -44,6 +44,12 @@ h1, h3 {
     overflow: hidden;
 }
 
+@media (max-width: 600px) {
+    .city_input {
+        width: 25rem;
+    }
+}
+
 @media (max-width: 375px) {
     .city_input {
         width: 15rem;
@@ -137,9 +143,17 @@ h1, h3 {
     display: flex;
 }
 
+@media (max-width: 600px) {
+    .weather_general {
+        margin-left: -2rem;
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 375px) {
     .weather_general {
         margin-left: -2rem;
+        flex-direction: column;
     }
 }
 
@@ -160,9 +174,17 @@ h1, h3 {
     }
 }
 
+@media (max-width: 600px) {
+    .temperature h1 {
+        margin-left: 1rem;
+        font-size: 2.5rem;
+    }
+}
+
 @media (max-width: 375px) {
     .temperature h1 {
-        margin-left: 0rem;
+        margin-left: 1rem;
+        font-size: 2rem;
     }
 }
 
@@ -175,7 +197,7 @@ h1, h3 {
     display: inline-block;
     margin-top: 1rem;
     margin-right: 1.5rem;
-    margin-left: -1rem;
+    margin-left: 0rem;
 }
 
 @media (max-width: 1366px) {
@@ -192,9 +214,17 @@ h1, h3 {
     }
 }
 
+@media (max-width: 600px) {
+    .city {
+        margin-left: 1rem;
+        margin-top: 1rem;
+    }
+}
+
 @media (max-width: 375px) {
     .city {
-        margin-left: 0.5rem;
+        margin-left: 1rem;
+        margin-top: 1rem;
     }
 }
 
@@ -207,6 +237,12 @@ h1, h3 {
 @media (max-width: 768px) {
     .city h1 {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .city h1 {
+        font-size: 2rem;
     }
 }
 
@@ -228,6 +264,14 @@ h1, h3 {
     .current_date {
         font-size: 0.8rem;
         margin-top: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .current_date {
+        font-size: 1rem;
+        margin-top: 0rem;
+        width: 11rem;
     }
 }
 
@@ -255,10 +299,17 @@ h1, h3 {
     }
 }
 
+@media (max-width: 600px) {
+    .icon {
+        margin-top: -2.5rem;
+        margin-left: 1rem;
+    }
+}
+
 @media (max-width: 375px) {
     .icon {
-        margin-top: -0.5rem;
-        margin-left: -0.5rem;
+        margin-top: -2.5rem;
+        margin-left: 1rem;
     }
 }
 
@@ -272,6 +323,13 @@ h1, h3 {
     .icon > img {
         height: 3rem;
         width: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .icon > img {
+        height: 4rem;
+        width: 4rem;
     }
 }
 
@@ -293,6 +351,13 @@ h1, h3 {
     }
 }
 
+@media (max-width: 600px) {
+    .description {
+        font-size: 1rem;
+        margin-left: 0rem;
+    }
+}
+
 @media (max-width: 375px) {
     .description {
         font-size: 0.5rem;
@@ -301,9 +366,22 @@ h1, h3 {
 }
 
 .conditions {
-    margin-top: -2rem;
+    margin-top: -1.5rem;
 }
 
+@media (max-width: 600px) {
+    .conditions {
+        margin-top: 2rem;
+        margin-left: -1rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .conditions {
+        margin-top: 2rem;
+        margin-left: -1rem;
+    }
+}
 
 .conditions > h5 {
     font-size: 1.5rem;
@@ -318,9 +396,17 @@ h1, h3 {
 }
 
 
+@media (max-width: 600px) {
+    .conditions h5 {
+        font-size: 1rem;
+        margin-top: 2rem;
+    }
+}
+
 @media (max-width: 375px) {
     .conditions h5 {
         font-size: 0.7rem;
+        margin-top: 2rem;
     }
 }
 
@@ -360,6 +446,14 @@ h1, h3 {
     }
 }
 
+@media (max-width: 600px) {
+    .pollution_header h3 {
+        font-size: 1.5rem;
+        text-underline-offset: 0.1rem;
+        margin-left: 1rem;
+    }
+}
+
 @media (max-width: 375px) {
     .pollution_header h3 {
         font-size: 0.7rem;
@@ -374,6 +468,13 @@ h1, h3 {
     margin-top: 0.5rem;
 }
 
+@media (max-width: 600px) {
+    .icon_skull {
+        font-size: 1rem;
+        margin-left: 0rem;
+    }
+}
+
 @media (max-width: 375px) {
     .icon_skull {
         font-size: 1rem;
@@ -384,6 +485,12 @@ h1, h3 {
 .pollution_details {
     list-style: none;
     padding-top: 2rem;
+}
+
+@media (max-width: 600px) {
+    .pollution_details {
+        margin-top: 0rem;
+    }
 }
 
 @media (max-width: 375px) {
@@ -410,6 +517,14 @@ h1, h3 {
     }
 }
 
+@media (max-width: 600px) {
+    .pollution_details > li {
+        font-size: 1rem;
+        margin-left: -1.5rem;
+        margin-right: 2rem;
+    }
+}
+
 @media (max-width: 375px) {
     .pollution_details > li {
         font-size: 0.7rem;
@@ -423,6 +538,12 @@ h1, h3 {
 }
 
 @media (max-width: 1366px) {
+    .air_quality_index {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
     .air_quality_index {
         font-size: 1.5rem;
     }
