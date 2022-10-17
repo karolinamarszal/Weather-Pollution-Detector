@@ -28,6 +28,12 @@ h1, h3 {
     position: relative;
 }
 
+@media (max-width: 500px) {
+    .main {
+        height: auto;
+    }
+}
+
 .top {
     display: flex;
     justify-content: center;
@@ -50,7 +56,7 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .city_input {
         width: 15rem;
     }
@@ -133,6 +139,12 @@ h1, h3 {
     display: flex;
 }
 
+@media (max-width: 500px) {
+    .down {
+        flex-direction: column;
+    }
+}
+
 .weather {
     width: 50%;
     height: 30rem;
@@ -150,7 +162,7 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .weather_general {
         margin-left: -2rem;
         flex-direction: column;
@@ -181,7 +193,7 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .temperature h1 {
         margin-left: 1rem;
         font-size: 2rem;
@@ -221,7 +233,7 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .city {
         margin-left: 1rem;
         margin-top: 1rem;
@@ -246,9 +258,9 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .city h1 {
-        font-size: 1rem;
+        font-size: 2rem;
     }
 }
 
@@ -275,9 +287,9 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .current_date {
-        font-size: 0.5rem;
+        font-size: 1rem;
         margin-top: 0rem;
     }
 }
@@ -306,7 +318,7 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .icon {
         margin-top: -2.5rem;
         margin-left: 1rem;
@@ -333,10 +345,10 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .icon > img {
-        height: 2rem;
-        width: 2rem;
+        height: 5rem;
+        width: 5rem;
     }
 }
 
@@ -358,9 +370,9 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .description {
-        font-size: 0.5rem;
+        font-size: 1rem;
         margin-left: 0rem;
     }
 }
@@ -376,7 +388,7 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .conditions {
         margin-top: 2rem;
         margin-left: -1rem;
@@ -403,9 +415,9 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .conditions h5 {
-        font-size: 0.7rem;
+        font-size: 1rem;
         margin-top: 2rem;
     }
 }
@@ -416,6 +428,14 @@ h1, h3 {
     background-color: rgba(0,0,0,.4);
     border-radius: 0.5rem;
     font-size: 1rem;
+}
+
+@media (max-width: 500px) {
+    .pollution {
+        width: 96%;
+        height: 13rem;
+        margin-top: -0.5rem;
+    }
 }
 
 .pollution_header {
@@ -454,9 +474,9 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .pollution_header h3 {
-        font-size: 0.7rem;
+        font-size: 1.5rem;
         text-underline-offset: 0.1rem;
         margin-left: 1rem;
     }
@@ -475,9 +495,9 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .icon_skull {
-        font-size: 1rem;
+        font-size: 1.5rem;
         margin-left: 0.5rem;
     }
 }
@@ -493,9 +513,9 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .pollution_details {
-        margin-top: 0rem;
+        padding-top: 1rem;
     }
 }
 
@@ -525,9 +545,9 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .pollution_details > li {
-        font-size: 0.7rem;
+        font-size: 1rem;
         margin-left: -1.5rem;
     }
 }
@@ -549,7 +569,7 @@ h1, h3 {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 500px) {
     .air_quality_index {
         font-size: 1rem;
     }
