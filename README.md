@@ -22,4 +22,4 @@ Project is created with
 	6) python manage.py runserver 
 ```
 
-Your django it's live. Please open your browser and type 127.0.0.1:8000.
+Now, the Weather Pollution Detector is live. Please open your browser and type 127.0.0.1:8000.
